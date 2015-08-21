@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Registration</title>
+<link rel="stylesheet" href="themes/miltontheme.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+function validateForm() {
+	
+	var submit=false;
+    var a = document.forms["reg"]["name"].value;
+	var b = document.forms["reg"]["college"].value;
+	var c = document.forms["reg"]["email"].value;
+	var d = document.forms["reg"]["phone"].value;
+	var sports = null; 
+	var inputElements = document.getElementsByClassName('custom');
+	for(var i=0; inputElements[i]; ++i){
+      if(inputElements[i].checked){
+           sports = inputElements[i].value;
+           break;
+      }
+	}
+	
+    if (a==null || a=="" || b==null || b=="" || c==null || c=="" || d==null || d=="" || sports==null || sports=="" ) {
+		alert("All fields must be filled");
+        submit=false;
+    }
+	else submit=true;
+	return submit;
+}
+
+</script>
+
+
+</head>
+<body>
+<div data-role="page" id="page" data-theme="a">
+  <div data-role="header"><a href="../index.html" rel="external" data-role="button" data-icon="home">Main Site</a>
+    <h1><img src="images/parakram15.png" width="500" height="70"></h1>
+  <a href="#rules"  data-role="button" data-icon="info">Instructions</a>  </div>
+  <div data-role="content" >
+  <div data-role="panel" id="rules" data-position="right" data-display="overlay">
+    <h1>INSTRUCTIONS</h1>
+    <p>1. Registration fee per participant will be INR 1000.<br><br>
+
+2.Fee will include fooding and accomodation for the entire Parakram'15.<br><br>
+
+3.Once registered individual can participate in any number of the events in Parakram'15.<br><br>
+
+4.Read the rules of event before you register for any event which are given under the EVENT SECTION.</p>
+</div><!-- /panel -->
+
+  
+    <h1>Registration -</h1>
+  
+  <form action="register.php" name="reg" onSubmit="return validateForm()" method="post" rel="external" data-ajax="false">
+    <div data-role="fieldcontain">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value=""  />
+      </div>
+    <div data-role="fieldcontain">
+      <label for="college">College:</label>
+      <input type="text" name="college" id="college" value=""  />
+      </div>
+    <div data-role="fieldcontain">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" value=""  />
+      </div>
+    <div data-role="fieldcontain">
+      <label for="phone">Phone:</label>
+      <input type="text" name="phone" id="phone" value=""  />
+      </div>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Participation</legend>
+        <input type="radio" name="radio1" id="radio1_0" value="invidual" />
+        <label for="radio1_0">Invidual</label>
+        <input type="radio" name="radio1" id="radio1_1" value="team" />
+        <label for="radio1_1">Team</label>
+        </fieldset>
+      </div>
+ 
+    
+      
+      
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup"  data-type="horizontal" >
+        <legend>Participating in</legend>
+        <input type="checkbox" name="sports[]" id="sports_0" class="custom" value="Athletics" />
+        <label for="sports_0">Athletics</label>
+        <input type="checkbox" name="sports[]" id="sports_1" class="custom" value="Badminton" />
+        <label for="sports_1">Badminton</label>
+        <input type="checkbox" name="sports[]" id="sports_2" class="custom" value="Basketball" />
+        <label for="sports_2">Basketball</label>
+        <input type="checkbox" name="sports[]" id="sports_3" class="custom" value="Billiards" />
+        <label for="sports_3">Billiards</label>
+        <input type="checkbox" name="sports[]" id="sports_4" class="custom" value="Boxing" />
+        <label for="sports_4">Boxing</label>
+        <input type="checkbox" name="sports[]" id="sports_5" class="custom" value="Chess" />
+        <label for="sports_5">Chess</label>
+        <input type="checkbox" name="sports[]" id="sports_6" class="custom" value="Cricket" />
+        <label for="sports_6">Cricket</label>
+        <input type="checkbox" name="sports[]" id="sports_7" class="custom" value="Football" />
+        <label for="sports_7">Football</label>
+        <input type="checkbox" name="sports[]" id="sports_8" class="custom" value="Gaming" />
+        <label for="sports_8">Gaming</label>
+        <input type="checkbox" name="sports[]" id="sports_9" class="custom" value="Lawn Tennis" />
+        <label for="sports_9">Lawn Tennis</label>
+        <input type="checkbox" name="sports[]" id="sports_10" class="custom" value="Table Tennis" />
+        <label for="sports_10">Table Tennis</label>
+        <input type="checkbox" name="sports[]" id="sports_11" class="custom" value="Squash" />
+        <label for="sports_11">Squash</label>
+        <input type="checkbox" name="sports[]" id="sports_12" class="custom" value="Volleyball" />
+        <label for="sports_12">Volleyball</label>
+         <input type="checkbox" name="sports[]" id="sports_13" class="custom" value="Other" />
+        <label for="sports_13">Other</label>
+        </fieldset>
+      </div>
+    <button type="submit" >Register</button>
+    
+    
+  </form>
+  
+  </div>
+  <div data-role="footer">
+    
+  </div>
+</div>
+
+
+
+</body>
+</html>
